@@ -7,17 +7,17 @@ import { HashLink } from "react-router-hash-link";
 function LandingFrench(props) {
   const [openForm, setOpenForm] = useState(false);
   const [newName, setNewName] = useState("");
-  const [newTitle, setNewTitle] = useState("");
+  const [newInsta, setNewInstagram] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [users, setUsers] = useState(false);
   const usersCollectionRef = collection(db, "userData");
   const createUser = async (event) => {
     event.preventDefault();
-    console.log(newEmail, newTitle, newName);
+    console.log(newEmail, newInsta, newName);
     await addDoc(usersCollectionRef, {
       email: newEmail,
       name: newName,
-      title: newTitle,
+      title: newInsta,
     });
     setUsers(true);
     setOpenForm(false);
@@ -30,10 +30,10 @@ function LandingFrench(props) {
       {openForm ? (
         <Form
           createUser={createUser}
-          setNewTitle={setNewTitle}
+          setNewInstagram={setNewInstagram}
           setNewName={setNewName}
           artistPlaceHolder={"Nom de l’artiste"}
-          titlePlaceHolder={"Titre"}
+          titlePlaceHolder={"Instagram"}
           users={users}
           setOpenForm={setOpenForm}
         />

@@ -10,15 +10,15 @@ import Form from "./form";
 function LandingEnglish(props) {
     const [openForm, setOpenForm] = useState(false);
     const [newName, setNewName] = useState("");
-    const [newTitle, setNewInstagram] = useState("");
+    const [newInsta, setNewInstagram] = useState("");
     const [newEmail, setNewEmail] = useState("");
     const [users, setUsers] = useState(false);
 
     const usersCollectionRef = collection(db, "userData");
     const createUser = async (event) => {
         event.preventDefault()
-        console.log(newEmail, newTitle, newName)
-        await addDoc(usersCollectionRef, { email: newEmail, name: newName, title:newTitle});
+        console.log(newEmail, newInsta, newName)
+        await addDoc(usersCollectionRef, { email: newEmail, name: newName, title:newInsta});
         setUsers(true)
         setOpenForm(false)
     };
